@@ -17,6 +17,11 @@
   cursor: pointer;
   border-bottom: 1px solid white;
   border-top: 1px solid white;
+
+  /* una opcion que tambien me gusto  comentando linea 18 y19 */
+  /* background-color: aliceblue ;
+  opacity: 100%;
+  color: black; */
 }
 .cart {
   width: 60px;
