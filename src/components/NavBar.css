@@ -1,0 +1,29 @@
+.skate {
+  width: 60px;
+  height: 30px;
+  color: white;
+}
+.bottonNav {
+  width: 95px;
+  padding: 8px;
+  color: aliceblue;
+  border-radius: 15%;
+}
+
+.bottonNav:hover {
+  cursor: pointer;
+  border-bottom: 1px solid white;
+}
+.cart {
+  width: 60px;
+  height: 30px;
+  color: black;
+}
+.cartContainer {
+  padding: 6px 12px;
+  border-radius: 15%;
+}
+.cartContainer:hover {
+  cursor: pointer;
+  background-color: rgba(3, 3, 3, 0.151);
+}
