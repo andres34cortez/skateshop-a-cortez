@@ -15,13 +15,15 @@ export const Navbar = () => {
     <Row
       justifyContent="space-between"
       alignItems="center"
-      background="linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,4,1) 69%, rgba(255,255,255,1) 100%)"
+      background="black"
       paddingLeft="64px"
       paddingRight="64px"
       paddingTop="5px"
-      height="80px"
+      height="60px"
     >
       <Row className="iconSkate">
+        {" "}
+        <Row>SkateShop</Row>
         <TbSkateboard className="skate"></TbSkateboard>
       </Row>
       <Row alignItems="center">

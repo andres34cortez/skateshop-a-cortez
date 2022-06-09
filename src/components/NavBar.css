@@ -3,6 +3,9 @@
   height: 30px;
   color: white;
 }
+.iconSkate {
+  color: aliceblue;
+}
 .bottonNav {
   width: 95px;
   padding: 8px;
@@ -13,11 +16,12 @@
 .bottonNav:hover {
   cursor: pointer;
   border-bottom: 1px solid white;
+  border-top: 1px solid white;
 }
 .cart {
   width: 60px;
   height: 30px;
-  color: black;
+  color: white;
 }
 .cartContainer {
   padding: 6px 12px;
@@ -25,5 +29,6 @@
 }
 .cartContainer:hover {
   cursor: pointer;
-  background-color: rgba(3, 3, 3, 0.151);
+  border-bottom: 2px solid rgba(17, 197, 26, 0.342);
+  border-top: 2px solid rgba(17, 197, 26, 0.342);
 }
