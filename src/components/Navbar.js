@@ -1,16 +1,14 @@
-import React, { useState } from "react";
 import "./NavBar.css";
-import { BsFillHouseDoorFill, BsFillCartFill } from "react-icons/bs";
+import { BsFillHouseDoorFill } from "react-icons/bs";
 import { AiOutlineFire } from "react-icons/ai";
 import { TbSkateboard } from "react-icons/tb";
 import { FaTshirt } from "react-icons/fa";
 import { Col, Row } from "jsxstyle";
+import CartWidget from "./CartWidget";
 
 export const Navbar = () => {
-  const [value, setValue] = useState(0);
-  const handleClickTab = (e, newValue) => {
-    setValue(newValue);
-  };
+  let numero = 10;
+
   return (
     <Row
       justifyContent="space-between"
@@ -20,6 +18,7 @@ export const Navbar = () => {
       paddingRight="64px"
       paddingTop="5px"
       height="60px"
+      style={{boxShadow:" 0px 8px 31px -5px #FFFFFF"}}
     >
       <Row className="iconSkate">
         {" "}
@@ -46,7 +45,7 @@ export const Navbar = () => {
         </Col>
       </Row>
       <Row className="cartContainer">
-        <BsFillCartFill className="cart"></BsFillCartFill>
+        <CartWidget numero={numero}></CartWidget>
       </Row>
     </Row>
   );

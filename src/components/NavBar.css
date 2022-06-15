@@ -1,10 +1,10 @@
 .skate {
-  width: 60px;
+  width: 68px;
   height: 30px;
   color: white;
 }
 .iconSkate {
-  color: aliceblue;
+  color: rgb(247, 247, 247);
 }
 .bottonNav {
   width: 95px;
@@ -18,22 +18,18 @@
   border-bottom: 1px solid white;
   border-top: 1px solid white;
 
-  /* una opcion que tambien me gusto  comentando linea 18 y19 */
-  /* background-color: aliceblue ;
+  /* una opcion que tambien me gusto  comentando linea 18 y19  */
+  /*  background-color: aliceblue ;
   opacity: 100%;
-  color: black; */
-}
-.cart {
-  width: 60px;
-  height: 30px;
-  color: white;
+  color: black;  */
 }
 .cartContainer {
+  color: white;
   padding: 6px 12px;
   border-radius: 15%;
 }
 .cartContainer:hover {
   cursor: pointer;
-  border-bottom: 2px solid rgba(17, 197, 26, 0.342);
-  border-top: 2px solid rgba(17, 197, 26, 0.342);
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
 }
