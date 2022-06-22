@@ -4,11 +4,10 @@ import { AiOutlineFire } from "react-icons/ai";
 import { TbSkateboard } from "react-icons/tb";
 import { FaTshirt } from "react-icons/fa";
 import { Col, Row } from "jsxstyle";
-import CartWidget from "./CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 
-export const Navbar = () => {
-  let numero = 10;
-
+const Navbar = ({numero}) => {
+ 
   return (
     <Row
       justifyContent="space-between"
@@ -18,10 +17,10 @@ export const Navbar = () => {
       paddingRight="64px"
       paddingTop="5px"
       height="60px"
-      style={{boxShadow:" 0px 8px 31px -5px #FFFFFF"}}
+      style={{ boxShadow: " 0px 8px 31px -5px #FFFFFF" }}
     >
       <Row className="iconSkate">
-        {" "}
+        
         <Row>SkateShop</Row>
         <TbSkateboard className="skate"></TbSkateboard>
       </Row>

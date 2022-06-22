@@ -1,16 +1,15 @@
-import { Col} from "jsxstyle";
-import React from "react";
-import ItemListContainer from "./components/ItemListContainer";
-import Navbar from "./components/Navbar";
-
+import { Col } from "jsxstyle";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Navbar from "./components/NavBar/Navbar.js";
 
 export const App = () => {
+  let numero = 10;
+
   return (
     <Col>
-      <Navbar></Navbar>
-     <ItemListContainer saludo={"Elemento ItemListContainer"}></ItemListContainer>
+      <Navbar numero={numero}></Navbar>
+      <ItemListContainer saludo={"inicial = 1 stock = 10"}></ItemListContainer>
     </Col>
-
   );
 };
 
