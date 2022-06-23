@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import './ItemCount.css'
 
-export default function Contador({ initial, stock, Cargado }) {
+export default function ItemCount({ initial, stock, Cargado }) {
   const [inicial, setinicial] = useState(initial);
 
   function disminuir() {
@@ -25,11 +25,11 @@ export default function Contador({ initial, stock, Cargado }) {
     <Col className="containerItenCount">
     <Row className="Contador">
       
-      <div className="adder" onClick={() => disminuir()}>-</div>
-      <div className="totalActual"> {inicial}</div>
-      <div className="adder"  onClick={() => aumentar()}>+</div>
+      <Row className="adder" props={{onClick:() => disminuir()}}>-</Row>
+      <Row className="totalActual"> {inicial}</Row>
+      <Row className="adder"  props={{onClick:() => aumentar()}}>+</Row>
     </Row>
-     <button onClick={() =>Cargado(inicial)}>agregar 🛒</button>
+     <button  className="buttonOnAdd" onClick={() =>Cargado(inicial)}>agregar  🛒</button>
     </Col>
   );
 }

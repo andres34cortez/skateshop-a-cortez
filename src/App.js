@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <Col>
       <Navbar numero={numero}></Navbar>
-      <ItemListContainer saludo={"inicial = 1 stock = 10"}></ItemListContainer>
+      <ItemListContainer saludo={"Productos"}></ItemListContainer>
     </Col>
   );
 };

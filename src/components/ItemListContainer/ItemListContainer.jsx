@@ -1,7 +1,10 @@
 import { Col } from "jsxstyle";
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount";
+
+
+import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
+
 
 export default function ItemListContainer({ saludo }) {
   let inicial = 1;
@@ -12,7 +15,8 @@ export default function ItemListContainer({ saludo }) {
   return (
     <Col className="ILCcontainer">
       <h1>{saludo}</h1>
-      <ItemCount initial={inicial} stock={stock} Cargado={Cargado}></ItemCount>
+      <ItemList initial={inicial} stock={stock} Cargado={Cargado}></ItemList>
+     {/*  <ItemCount initial={inicial} stock={stock} Cargado={Cargado}></ItemCount> */}
     </Col>
   );
 }
