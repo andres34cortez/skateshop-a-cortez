@@ -5,9 +5,9 @@ import { TbSkateboard } from "react-icons/tb";
 import { FaTshirt } from "react-icons/fa";
 import { Col, Row } from "jsxstyle";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink } from "react-router-dom";
 
-const Navbar = ({numero}) => {
- 
+const Navbar = ({ numero }) => {
   return (
     <Row
       justifyContent="space-between"
@@ -20,15 +20,16 @@ const Navbar = ({numero}) => {
       style={{ boxShadow: " 0px 8px 31px -5px #FFFFFF" }}
     >
       <Row className="iconSkate">
-        
         <Row>SkateShop</Row>
         <TbSkateboard className="skate"></TbSkateboard>
       </Row>
       <Row alignItems="center">
-        <Col alignItems="center" className="bottonNav">
-          <BsFillHouseDoorFill></BsFillHouseDoorFill>
-          {"INICIO"}
-        </Col>
+        <NavLink to={`/`}>
+          <Col alignItems="center" className="bottonNav">
+            <BsFillHouseDoorFill></BsFillHouseDoorFill>
+            {"INICIO"}
+          </Col>
+        </NavLink>
         <Col
           alignItems="center"
           marginLeft="60px"
@@ -38,6 +39,7 @@ const Navbar = ({numero}) => {
           <FaTshirt></FaTshirt>
           {"PRODUCTOS"}
         </Col>
+
         <Col alignItems="center" className="bottonNav">
           <AiOutlineFire></AiOutlineFire>
           {"OFERTAS"}

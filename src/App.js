@@ -1,15 +1,21 @@
-import { Col } from "jsxstyle";
+
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import Navbar from "./components/NavBar/Navbar.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const App = () => {
   let numero = 10;
 
   return (
-    <Col>
-      <Navbar numero={numero}></Navbar>
-      <ItemListContainer saludo={"Productos"}></ItemListContainer>
-    </Col>
+    <BrowserRouter>
+      <Navbar numero={numero} />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:idCategory" element={<ItemListContainer />} />
+        <Route path="/item/:productID" element={<ItemDetailContainer />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

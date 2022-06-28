@@ -1,11 +1,15 @@
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import { Col, Row } from "jsxstyle";
 import "./Item.css";
+import { useNavigate, } from "react-router-dom";
 
-export default function Item({ product, initial, stock, Cargado }) {
+export default function Item({ product, initial, stock }) {
+  let navigate = useNavigate(); 
+
+
   return (
-    <Col className="tarjetaProducto">
+    <Col className="tarjetaProducto" props={{onClick:()=> navigate(`/item/${product.id}`)}}>
+   
       <Row className="productTitle">
         {product.title}
       </Row>
@@ -13,8 +17,11 @@ export default function Item({ product, initial, stock, Cargado }) {
         <img src={product.pictureURL} alt=""></img>
       </Row>
       <Row className="productDescription">{product.description}</Row>
-      <Row className="productPrice">${product.price}</Row>
-      <ItemCount initial={initial} stock={stock} Cargado={Cargado}></ItemCount>
+      <Row className="productPrice">${product.price} </Row>
+     
+     
     </Col>
+  
+    
   );
 }
