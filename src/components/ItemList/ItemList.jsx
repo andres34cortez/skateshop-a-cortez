@@ -7,19 +7,9 @@ import "./ItemList.css";
 
 
 
-export default function ItemList({ initial, stock }) {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function ItemList({ initial, stock,productsData }) {
 
-  useEffect(() => {
-    setTimeout(() => {
-      new Promise((resolve, reject) => {
-        resolve(productsData);
-      })
-        .then((res) => setProducts(res))
-        .then(() => setLoading(false));
-    }, 2000);
-  }, []);
+ 
   return (
     <Row>
       {productsData.map((product) => (
