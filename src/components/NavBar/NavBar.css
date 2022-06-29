@@ -1,6 +1,4 @@
-.{
-  padding-bottom:40px ;
-}.skate {
+.skate {
   width: 68px;
   height: 30px;
   color: white;
@@ -34,4 +32,8 @@
   cursor: pointer;
   border-bottom: 1px solid rgb(255, 255, 255);
   border-top: 1px solid rgb(255, 255, 255);
+}
+.navLinks{
+  text-decoration: none;  
+  margin-left: 60px;
 }

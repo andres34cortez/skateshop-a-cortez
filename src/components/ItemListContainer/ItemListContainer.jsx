@@ -4,28 +4,39 @@ import { useEffect, useState } from "react";
 import productsData from "../../data/porductsData";
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
+import { useParams } from "react-router-dom";
 
 export default function ItemListContainer({ saludo }) {
   let inicial = 1;
   let stock = 10;
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
-    setTimeout(() => {
-      new Promise((resolve, reject) => {
-        resolve(productsData);
-      })
-        .then((res) => setProducts(res))
-        .then(() => setLoading(false));
-    }, 2000);
-  }, []);
- 
-  
-  return (
-    <Col className="ILCcontainer">
-      <h1>{saludo}</h1>
-      <ItemList initial={inicial} stock={stock} productsData={productsData}></ItemList>
-    </Col>
+    new Promise((resolve, reject) => {
+      resolve(productsData.filter((elemento) => elemento.category == id));
+    }).then((res) => setProducts(res));
+
+    console.log(products);
+  }, [id]);
+
+  return (<>
+  {!id ? <Col className="ILCcontainer">
+  <ItemList
+    initial={inicial}
+    stock={stock}
+    productsData={productsData}
+  ></ItemList>
+</Col> :<Col className="ILCcontainer">
+<ItemList
+  initial={inicial}
+  stock={stock}
+  productsData={products}
+></ItemList>
+</Col> }
+</>
+    
   );
 }

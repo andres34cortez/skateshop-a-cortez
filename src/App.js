@@ -12,7 +12,7 @@ export const App = () => {
       <Navbar numero={numero} />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
-        <Route path="/category/:idCategory" element={<ItemListContainer />} />
+        <Route path="/category/:id" element={<ItemListContainer />} />
         <Route path="/item/:productID" element={<ItemDetailContainer />} />
       </Routes>
     </BrowserRouter>

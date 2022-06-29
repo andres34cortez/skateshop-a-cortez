@@ -14,8 +14,8 @@ export default function ItemDatail({ productInfo }) {
     <Row className="itemDetailContainer">
       <Col className="left">
         <Row className="itemTitle">{productInfo.title}</Row>{" "}
-        <Row className="itemImg">
-          <img src={productInfo.img} alt=""></img>
+        <Row >
+          <img className="itemImg" src={productInfo.img} alt=""></img>
         </Row>
         <Row className="itemDescriptionLong">{productInfo.descriptionLong}</Row>
       </Col>

@@ -1,4 +1,10 @@
-.ItemListContainer{
-    align-items: center;    
-    margin: 20px;
+.ItemList{
+  
+    color: white;
+     justify-content: center;
+     max-width: 1400px; 
+     padding-left: 25px;    
+    flex-wrap: wrap;
+    
+   
 }

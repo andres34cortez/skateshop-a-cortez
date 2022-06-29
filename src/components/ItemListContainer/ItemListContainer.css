@@ -1,8 +1,11 @@
-.ILCcontainer {
-  background-color: black;
-  
+.ILCcontainer {   
   color: white;
- margin-top: 100px;
-  align-items:  center;
-  overflow-x: hidden;
+   margin-top: 100px; 
+align-items: center;
+margin-bottom: 100px;
+
+  
+ 
+ 
+ 
 }
