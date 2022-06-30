@@ -3,7 +3,7 @@ import React from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 
-export default function ItemDatail({ productInfo }) {
+export default function ItemDetail({ productInfo }) {
   let inicial = 1;
   function onAdd(numero) {
     alert(`${numero}`); // hago un alert como para mostrarlo, despues esto va a hacer la carga de el carrito

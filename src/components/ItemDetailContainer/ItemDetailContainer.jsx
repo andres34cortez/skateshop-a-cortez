@@ -4,7 +4,7 @@ import "./ItemDetailContainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import productsData from "../../data/porductsData";
-import ItemDatail from "../ItemDetail/ItemDatail";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 export default function ItemDetailContainer() {
   const [productInfo, setProductInfo] = useState({});
@@ -19,7 +19,7 @@ export default function ItemDetailContainer() {
   return (
     <Col className="Container">
      
-      <ItemDatail productInfo={productInfo}></ItemDatail>
+      <ItemDetail productInfo={productInfo}></ItemDetail>
     </Col>
   );
 }
