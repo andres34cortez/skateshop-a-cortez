@@ -1,12 +1,17 @@
 import { Row } from "jsxstyle";
 import "./CartWidget.css";
 import { BsFillCartFill } from "react-icons/bs";
+import { cartContext } from "../../context/CartProvider";
+import { useContext } from "react";
+
 
 export default function CartWidget({ numero }) {
+  const {cantCart}  = useContext(cartContext);
+  console.log(cantCart);
   return (
     <Row alignItems="center">
       <BsFillCartFill></BsFillCartFill>
-      {numero !== 0 ? <Row className="cantidadCart">{numero}</Row> : null}
+      {cantCart !== 0 ? <Row className="cantidadCart">{cantCart}</Row> : null}
     </Row>
   );
 }

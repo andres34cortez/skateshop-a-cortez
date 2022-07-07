@@ -4,17 +4,21 @@ import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { useNavigate, } from "react-router-dom";
+import { cartContext } from "../../context/CartProvider";
+import { useContext } from "react";
+
+
 
 
 export default function ItemDetail({ productInfo }) {
+  const {addItem} = useContext(cartContext);
+
   let navigate = useNavigate(); 
   let inicial = 1;
   const [btnClick, setBtnClick] = useState(inicial);
-  const [flag ,setFlag] = useState(true); /*  POR AHORA NO HACE NADA, PERO ES PARA MOSTRAR EL STATE DEL BOTON, PERO ME PARECE MEJOR */
-  /* function onAdd(numero) {
-    alert(`${numero}`); // hago un alert como para mostrarlo, despues esto va a hacer la carga de el carrito
 
-  } */
+  const [flag ,setFlag] = useState(true); /*  POR AHORA NO HACE NADA, PERO ES PARA MOSTRAR EL STATE DEL BOTON, PERO ME PARECE MEJOR */
+  
   const handleClickPlus = () => {
     if (btnClick >= productInfo.stock) {
       return;
@@ -35,6 +39,8 @@ export default function ItemDetail({ productInfo }) {
       alert(`${btnClick}`);
       /* aca voy a agregar una funcion para modificar el flag que me muestra  o no el boton de finalizar compra */
       setFlag(false);
+      addItem(productInfo, btnClick);
+
     }
   };
 
