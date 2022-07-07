@@ -3,6 +3,7 @@ import Item from "../Item/Item";
 import { Col, Row } from "jsxstyle";
 import "./ItemList.css";
 
+
 export default function ItemList({ initial, stock, productsData }) {
   return (
     <Row className="ItemList">

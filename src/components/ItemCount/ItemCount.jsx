@@ -1,31 +1,21 @@
 import { Col, Row } from "jsxstyle";
 import React from "react";
-import { useState } from "react";
 import "./ItemCount.css";
 
-export default function ItemCount({ initial, stock, Cargado }) {
-  const [inicial, setinicial] = useState(initial);
+export default function ItemCount({
+  inicial,
+  stock,
+  Cargado,
+  handleClickMinus,
+  handleClickPlus,
+}) {
   console.log(stock);
-  function disminuir() {
-    if (inicial === 1) {
-      return;
-    }
-    let auxApretado = inicial - 1;
-    setinicial(auxApretado);
-  }
-  function aumentar() {
-    if (inicial >= stock) {
-      return;
-    }
-    let auxApretado = inicial + 1;
-    setinicial(auxApretado);
-  }
 
   return (
     <Col className="containerItenCount">
       <Row className="Contador">
         {stock === "0" ? null : (
-          <Row className="adder" props={{ onClick: () => disminuir() }}>
+          <Row className="adder" props={{ onClick: () => handleClickMinus() }}>
             -
           </Row>
         )}
@@ -36,7 +26,7 @@ export default function ItemCount({ initial, stock, Cargado }) {
           <Row className="totalActual"> {inicial}</Row>
         )}
         {stock === "0" ? null : (
-          <Row className="adder" props={{ onClick: () => aumentar() }}>
+          <Row className="adder" props={{ onClick: () => handleClickPlus() }}>
             +
           </Row>
         )}

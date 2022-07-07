@@ -2,19 +2,48 @@ import { Col, Row } from "jsxstyle";
 import React from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react";
+import { useNavigate, } from "react-router-dom";
+
 
 export default function ItemDetail({ productInfo }) {
+  let navigate = useNavigate(); 
   let inicial = 1;
-  function onAdd(numero) {
+  const [btnClick, setBtnClick] = useState(inicial);
+  const [flag ,setFlag] = useState(true); /*  POR AHORA NO HACE NADA, PERO ES PARA MOSTRAR EL STATE DEL BOTON, PERO ME PARECE MEJOR */
+  /* function onAdd(numero) {
     alert(`${numero}`); // hago un alert como para mostrarlo, despues esto va a hacer la carga de el carrito
-  }
+
+  } */
+  const handleClickPlus = () => {
+    if (btnClick >= productInfo.stock) {
+      return;
+    }
+    setBtnClick(btnClick + 1);
+  };
+
+  const handleClickMinus = () => {
+    if (btnClick === 0 ) {
+      return;
+    }
+    setBtnClick(btnClick - 1);
+  };
+  const onAdd = (btnClick) => {
+    if (btnClick === 0) {
+      return;
+    } else {
+      alert(`${btnClick}`);
+      /* aca voy a agregar una funcion para modificar el flag que me muestra  o no el boton de finalizar compra */
+      setFlag(false);
+    }
+  };
 
   console.log(productInfo);
   return (
     <Row className="itemDetailContainer">
       <Col className="left">
         <Row className="itemTitle">{productInfo.title}</Row>{" "}
-        <Row >
+        <Row>
           <img className="itemImg" src={productInfo.img} alt=""></img>
         </Row>
         <Row className="itemDescriptionLong">{productInfo.descriptionLong}</Row>
@@ -24,11 +53,14 @@ export default function ItemDetail({ productInfo }) {
         <Row className="itemStock"> STOCK : {productInfo.stock}</Row>
         <Row className="ItemItemCount">
           <ItemCount
-            
-            initial={inicial}
+            inicial={btnClick}
             stock={productInfo.stock}
             Cargado={onAdd}
+            handleClickMinus={handleClickMinus}
+            handleClickPlus={handleClickPlus}
           ></ItemCount>
+          {productInfo.stock == 0 ? null: <button disabled={flag} rops={{onClick:()=> navigate(`/cart`)}}>FINALIZAR COMPRA ➡ 🛒</button>}
+          
         </Row>
       </Col>
     </Row>

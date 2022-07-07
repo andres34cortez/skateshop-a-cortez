@@ -18,7 +18,6 @@ export default function ItemDetailContainer() {
   }, [productID]);
   return (
     <Col className="Container">
-     
       <ItemDetail productInfo={productInfo}></ItemDetail>
     </Col>
   );
