@@ -9,8 +9,6 @@ export default function ItemCount({
   handleClickMinus,
   handleClickPlus,
 }) {
-  console.log(stock);
-
   return (
     <Col className="containerItenCount">
       <Row className="Contador">

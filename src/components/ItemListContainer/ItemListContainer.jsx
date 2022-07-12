@@ -12,31 +12,32 @@ export default function ItemListContainer({ saludo }) {
   const [products, setProducts] = useState([]);
 
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     new Promise((resolve, reject) => {
       resolve(productsData.filter((elemento) => elemento.category == id));
     }).then((res) => setProducts(res));
-
-    console.log(products);
   }, [id]);
 
-  return (<>
-  {!id ? <Col className="ILCcontainer">
-  <ItemList
-    initial={inicial}
-    stock={stock}
-    productsData={productsData}
-  ></ItemList>
-</Col> :<Col className="ILCcontainer">
-<ItemList
-  initial={inicial}
-  stock={stock}
-  productsData={products}
-></ItemList>
-</Col> }
-</>
-    
+  return (
+    <>
+      {!id ? (
+        <Col className="ILCcontainer">
+          <ItemList
+            initial={inicial}
+            stock={stock}
+            productsData={productsData}
+          ></ItemList>
+        </Col>
+      ) : (
+        <Col className="ILCcontainer">
+          <ItemList
+            initial={inicial}
+            stock={stock}
+            productsData={products}
+          ></ItemList>
+        </Col>
+      )}
+    </>
   );
 }

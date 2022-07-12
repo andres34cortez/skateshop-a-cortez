@@ -4,10 +4,9 @@ import { BsFillCartFill } from "react-icons/bs";
 import { cartContext } from "../../context/CartProvider";
 import { useContext } from "react";
 
-
 export default function CartWidget({ numero }) {
-  const {cantCart}  = useContext(cartContext);
-  console.log(cantCart);
+  const { cantCart } = useContext(cartContext);
+
   return (
     <Row alignItems="center">
       <BsFillCartFill></BsFillCartFill>

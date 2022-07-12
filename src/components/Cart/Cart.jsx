@@ -1,42 +1,26 @@
 import React from "react";
-import { CartContext } from "../../context/CartProvider";
+import { cartContext } from "../../context/CartProvider";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import ItemCount from "../itemCount/ItemCount";
+import { Col, Row } from "jsxstyle";
+
 export default function Cart() {
-  const { cartItems, toggleCart, removeItem } = useContext(CartContext);
+  const { cantCart, cartProducts } = useContext(cartContext); ///añadir Clean y remover item
+  console.log(cartProducts[0].title,cartProducts[1].title);
+  const productoCarrito = cartProducts.map((producto) => {
+    return (
+      <div key={producto.id}>
+        <h1>{producto.title}</h1>
+        <h1>{producto.amount}</h1>
+      </div>
+    )
+  } )
   return (
     <div>
-      Carrito De compra
-      {cartItems.length < 1 ? (
-        <div className="CartEmpty">
-          Carrito de compra Vacio
-          <Link to="/">
-            <button onClick={() => toggleCart(false)}>
-              Continuar viendo Elementos
-            </button>
-          </Link>
-        </div>
-      ) : (
-        cartItems.map((product) => (
-          <div key={product.id} className="ProductListCart">
-            <figure>
-              <img src={product.pictureURL} alt={product.title} />
-            </figure>
-            <div className="ProductCart">
-              <h4>{product.title}</h4>
-              <h5>${product.price}</h5>
-            </div>
-            <div className="BottonCart">
-              <ItemCount />
-              <div
-                className="DeletElementCart"
-                onClick={() => removeItem(product)}
-              />
-            </div>
-          </div>
-        ))
-      )}
-    </div>
+      {productoCarrito}
+      carrito de compra CON {cantCart} ITEMS
+      
+    </div> // por ahora solo llego
+    
   );
 }
