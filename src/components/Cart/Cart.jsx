@@ -3,10 +3,11 @@ import { cartContext } from "../../context/CartProvider";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row } from "jsxstyle";
+import './Cart.css';
 
 export default function Cart() {
   const { cantCart, cartProducts } = useContext(cartContext); ///añadir Clean y remover item
-  console.log(cartProducts[0].title,cartProducts[1].title);
+  
   const productoCarrito = cartProducts.map((producto) => {
     return (
       <div key={producto.id}>
@@ -16,7 +17,7 @@ export default function Cart() {
     )
   } )
   return (
-    <div>
+    <div className="CartContainer">
       {productoCarrito}
       carrito de compra CON {cantCart} ITEMS
       
