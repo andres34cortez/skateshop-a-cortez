@@ -8,6 +8,7 @@ export default function CartProvider({ children }) {
 
   const clear = () => {
     setCartProducts([]);
+    setCantCart(0)
   };
 
   const addItem = (productInfo, cantCount) => {
@@ -26,7 +27,7 @@ export default function CartProvider({ children }) {
     } else {
       setCartProducts([
         ...cartProducts,
-        { ...productInfo, amount: 1, cantCount: 1 },
+        { ...productInfo, amount: cantCount, cantCount: 1 },
       ]);
     }
 
