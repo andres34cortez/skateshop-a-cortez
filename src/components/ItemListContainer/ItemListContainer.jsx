@@ -1,41 +1,55 @@
 import { Col } from "jsxstyle";
 import React from "react";
 import { useEffect, useState } from "react";
-import productsData from "../../data/porductsData";
+
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 import { useParams } from "react-router-dom";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 export default function ItemListContainer({ saludo }) {
   let inicial = 1;
-  let stock = 10;
+
   const [products, setProducts] = useState([]);
 
   const { id } = useParams();
 
   useEffect(() => {
-    new Promise((resolve, reject) => {
-      resolve(productsData.filter((elemento) => elemento.category == id));
-    }).then((res) => setProducts(res));
+    const Db = getFirestore();
+    const productsData = collection(Db, "productsData");
+
+    if (!id) {
+      getDocs(productsData).then((res) => {
+        setProducts(res.docs.map((item) => ({ ...item.data(), id: item.id })));
+      });
+    } else {
+      const productsQuery = query(
+        collection(Db, "productsData"),
+        where("category", "==", id)
+      );
+      getDocs(productsQuery).then((res) => {
+        setProducts(res.docs.map((item) => ({ ...item.data(), id: item.id })));
+      });
+    }
+
+    console.log(productsData.title);
   }, [id]);
 
   return (
     <>
       {!id ? (
         <Col className="ILCcontainer">
-          <ItemList
-            initial={inicial}
-            stock={stock}
-            productsData={productsData}
-          ></ItemList>
+          <ItemList initial={inicial} productsData={products}></ItemList>
         </Col>
       ) : (
         <Col className="ILCcontainer">
-          <ItemList
-            initial={inicial}
-            stock={stock}
-            productsData={products}
-          ></ItemList>
+          <ItemList initial={inicial} productsData={products}></ItemList>
         </Col>
       )}
     </>

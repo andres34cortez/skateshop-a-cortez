@@ -3,19 +3,23 @@ import React from "react";
 import "./ItemDetailContainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import productsData from "../../data/porductsData";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default function ItemDetailContainer() {
   const [productInfo, setProductInfo] = useState({});
-
-  let { productID } = useParams();
+/*   const [products, setProducts] = useState([]); */
+  let { productID } = useParams()
 
   useEffect(() => {
-    new Promise((resolve, reject) => {
-      resolve(productsData.find((elemento) => elemento.id == productID));
-    }).then((res) => setProductInfo(res));
-  }, [productID]);
+
+const Db = getFirestore();
+const productRef = doc(Db, "productsData", productID)
+getDoc(productRef).then((res)=>{
+  const item = {...res.data(), id:res.id}
+  console.log("item", item)
+  setProductInfo(item)
+})}, [productID])
   return (
     <Col className="Container">
       <ItemDetail productInfo={productInfo}></ItemDetail>

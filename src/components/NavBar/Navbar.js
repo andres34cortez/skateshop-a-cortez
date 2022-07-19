@@ -7,7 +7,6 @@ import { Col, Row } from "jsxstyle";
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
 
-
 const Navbar = ({ numero }) => {
   return (
     <Row
@@ -32,26 +31,26 @@ const Navbar = ({ numero }) => {
             {"INICIO"}
           </Col>
         </NavLink>
-        <Col style={{ border:"1px solid white", height:"30px", marginLeft:20 }}></Col>
-        <NavLink className="navLinks" to={`/category/2`}>
         <Col
-          alignItems="center"
-        
-          className="bottonNav"
-        >
-          <FaTshirt></FaTshirt>
-          {"INDUMENTARIA"}
-        </Col>
+          style={{ border: "1px solid white", height: "30px", marginLeft: 20 }}
+        ></Col>
+        <NavLink className="navLinks" to={`/category/2`}>
+          <Col alignItems="center" className="bottonNav">
+            <FaTshirt></FaTshirt>
+            {"INDUMENTARIA"}
+          </Col>
         </NavLink>
-        <NavLink  className="navLinks"to={`/category/1`}>
-        <Col alignItems="center" className="bottonNav">
-          <AiOutlineFire></AiOutlineFire>
-          {"SKATE SHOP"}
-        </Col>
+        <NavLink className="navLinks" to={`/category/1`}>
+          <Col alignItems="center" className="bottonNav">
+            <AiOutlineFire></AiOutlineFire>
+            {"SKATE SHOP"}
+          </Col>
         </NavLink>
       </Row>
-      <Row className="cartContainer">
-        <CartWidget numero={numero}></CartWidget>
+      <Row >
+        <NavLink className="cartContainer" to={`/cart`}>
+          <CartWidget numero={numero}></CartWidget>
+        </NavLink>
       </Row>
     </Row>
   );
