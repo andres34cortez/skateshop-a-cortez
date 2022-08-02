@@ -29,6 +29,7 @@ const Formulario = () => {
     };
     const db = getFirestore();
     const collectionCompra = collection(db, "ordenesCompra");
+   
     addDoc(collectionCompra, orden).then(() => clear());
 
     swal("Compra realizada!", "Graciaspor su compra :D", "success").then(

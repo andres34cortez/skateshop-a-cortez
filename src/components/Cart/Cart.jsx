@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 export default function Cart() {
-  const {  cartProducts, clear, removeItem } = useContext(cartContext); 
+  const { cartProducts, clear, removeItem } = useContext(cartContext);
   let navigate = useNavigate();
   let totalCompra = 0;
 
@@ -24,7 +24,6 @@ export default function Cart() {
           className="deleteProductCart"
           props={{ onClick: () => removeItem(producto) }}
         >
-          
           eliminar 1 producto
         </Col>
       </Col>
@@ -32,27 +31,43 @@ export default function Cart() {
   });
   return (
     <div className="CartContainer">
-      <Col>
-        <h1 className="titleCartProduct">CARRITO DE COMPRA SKATESHOP</h1>
-      </Col>
-      <Col className="homeCart" props={{ onClick: () => navigate(`/`) }}>
-        inicio
-      </Col>
-      <Row className="productCartContainer">
-        <Row>{productoCarrito}</Row>
-      </Row>
-      <Col className="deleteCart" props={{ onClick: () => clear() }}>
-        vaciar carrito
-      </Col>{" "}
-      <Col className="FinishElement">
-        
-        <Row>         
-          <Col className="TotalFinishCart">TOTAL :$ {totalCompra}  </Col>
-        </Row>
-        <Row className="FinishCart" props={{ onClick: () => navigate(`/formulario`)}}>
-          Finalizar Compra
-        </Row>
-      </Col>
+      {cartProducts.length < 1 ? (
+        <>
+          <Col>
+            <h1 className="titleCartProduct">
+              TU CARRITO DE COMPRA ESTA VACIO
+            </h1>
+          </Col>
+          <Col className="homeCart" props={{ onClick: () => navigate(`/`) }}>
+            inicio
+          </Col>
+        </>
+      ) : (
+        <>
+        <Col>
+            <h1 className="titleCartProduct">
+               Tu Carrito de Compra
+            </h1>
+          </Col>
+          <Row className="productCartContainer">
+            <Row>{productoCarrito}</Row>
+          </Row>
+          <Col className="deleteCart" props={{ onClick: () => clear() }}>
+            vaciar carrito
+          </Col>{" "}
+          <Col className="FinishElement">
+            <Row>
+              <Col className="TotalFinishCart">TOTAL :$ {totalCompra} </Col>
+            </Row>
+            <Row
+              className="FinishCart"
+              props={{ onClick: () => navigate(`/formulario`) }}
+            >
+              Finalizar Compra
+            </Row>
+          </Col>{" "}
+        </>
+      )}
     </div>
   );
 }
