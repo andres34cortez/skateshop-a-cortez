@@ -1,8 +1,86 @@
 .CartContainer
 {
-    border: 1 px solid white;
+    border: 0.5px solid white;
     color: white;
+    
+    margin-top: 100px;
 }
 .itemCart{
     border: 2px solid whitesmoke;
+    padding: 10px;
+    margin:  10px;
+}
+.deleteCart{
+    border: 1px solid red;
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+    cursor: pointer;
+
+}
+.FinishCart{
+    border: 1px solid red;
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+    cursor: pointer;
+
+}
+.homeCart{
+    border: 1px solid rgb(94, 255, 0);
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+    color:  white;
+    cursor: pointer;
+
+}
+.deleteProductCart{
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+.productCartContainer 
+{    flex-wrap: wrap;
+    border: 0.5px solid white;
+    color: white;
+    padding:  30px;
+
+  
+}
+.FinishElement{
+    border:1px solid white;
+    align-items: center;
+    justify-content: space-between;
+}
+.TotalFinishCart{
+    align-items: center;
+    font-size: 50px;
+    margin: 50px;    
+    color: black;
+    background-color: white;
+}
+.FinishCart:hover{
+    background-color: aliceblue;
+    color: black;
+}
+.deleteCart:hover{
+    background-color: aliceblue;
+    color: black;
+}
+.deleteProductCart:hover{
+    background-color: aliceblue;
+    color: black;
 }

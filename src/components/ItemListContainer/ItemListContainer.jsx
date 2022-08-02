@@ -38,7 +38,7 @@ export default function ItemListContainer({ saludo }) {
       });
     }
 
-    console.log(productsData.title);
+ 
   }, [id]);
 
   return (

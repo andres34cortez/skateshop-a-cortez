@@ -6,27 +6,53 @@ import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 export default function Cart() {
-  const { cantCart, cartProducts, clear } = useContext(cartContext); ///añadir Clean y remover item
-  console.log(cartProducts);
+  const {  cartProducts, clear, removeItem } = useContext(cartContext); 
   let navigate = useNavigate();
+  let totalCompra = 0;
+
   const productoCarrito = cartProducts.map((producto) => {
+    let total = producto.price * producto.amount;
+    totalCompra = totalCompra + total;
     return (
-      <div className="itemCart" key={producto.id}>
+      <Col className="itemCart" key={producto.id}>
         <h1>{producto.title}</h1>
-        <h1>{producto.amount}</h1>
-      </div>
+        <img src={producto.pictureURL} alt="" />
+        <h1>Cantidad : {producto.amount}</h1>
+        <h3> precio unitario : ${producto.price}</h3>
+        <h1>total : ${total}</h1>
+        <Col
+          className="deleteProductCart"
+          props={{ onClick: () => removeItem(producto) }}
+        >
+          
+          eliminar 1 producto
+        </Col>
+      </Col>
     );
   });
   return (
     <div className="CartContainer">
-      <Col props={{ onClick: () => navigate(`/`) }}>
-        <button>ir al inicio</button>
+      <Col>
+        <h1 className="titleCartProduct">CARRITO DE COMPRA SKATESHOP</h1>
       </Col>
-      carrito de compra CON {cantCart} ITEMS
-      <Row >{productoCarrito}</Row>
-      <Col props={{ onClick: () => clear() }}>
-        <button>eliminar carrito</button>
+      <Col className="homeCart" props={{ onClick: () => navigate(`/`) }}>
+        inicio
       </Col>
-    </div> // por ahora solo llego
+      <Row className="productCartContainer">
+        <Row>{productoCarrito}</Row>
+      </Row>
+      <Col className="deleteCart" props={{ onClick: () => clear() }}>
+        vaciar carrito
+      </Col>{" "}
+      <Col className="FinishElement">
+        
+        <Row>         
+          <Col className="TotalFinishCart">TOTAL :$ {totalCompra}  </Col>
+        </Row>
+        <Row className="FinishCart" props={{ onClick: () => navigate(`/formulario`)}}>
+          Finalizar Compra
+        </Row>
+      </Col>
+    </div>
   );
 }

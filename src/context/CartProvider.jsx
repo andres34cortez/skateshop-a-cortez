@@ -1,5 +1,6 @@
 import React from "react";
 import { createContext, useState } from "react";
+import swal from "sweetalert";
 
 export const cartContext = createContext();
 export default function CartProvider({ children }) {
@@ -15,6 +16,7 @@ export default function CartProvider({ children }) {
     const inCart = cartProducts.find((item) => {
       return item.id === productInfo.id;
     });
+    
 
     if (inCart) {
       setCartProducts(
@@ -30,12 +32,22 @@ export default function CartProvider({ children }) {
         { ...productInfo, amount: cantCount, cantCount: 1 },
       ]);
     }
-
+    
     setCantCart(cantCart + cantCount);
-    console.log(cartProducts);
+   
   };
+
+  const removeItem = (product) => {
+    const removeProduct = cartProducts.filter(item => item.id !== product.id)    
+
+    if(removeProduct){
+      setCartProducts(removeProduct);
+      setCantCart(cantCart - product.amount);
+      swal("Producto Eliminado !", "", "warning");          
+    }
+  } 
   return (
-    <cartContext.Provider value={{ clear, addItem, cantCart, cartProducts }}>
+    <cartContext.Provider value={{ clear, addItem, cantCart, cartProducts, removeItem }}>
       {children}
     </cartContext.Provider>
   );

@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { cartContext } from "../../context/CartProvider";
 import { useContext } from "react";
+import swal from "sweetalert";
+
 
 export default function ItemDetail({ productInfo }) {
   const { addItem } = useContext(cartContext);
@@ -33,8 +35,10 @@ export default function ItemDetail({ productInfo }) {
     if (btnClick === 0) {
       return;
     } else {
-      alert( "se agregaron : "+`${btnClick}`+"  productos de tipo " +`${productInfo.title}` );
-      /* aca voy a agregar una funcion para modificar el flag que me muestra  o no el boton de finalizar compra */
+     /*  alert( "se agregaron : "+`${btnClick}`+"  productos de tipo " +`${productInfo.title}` ); */
+   
+     swal("Item Agregado!","  Tu item ahora  se encuentra en el carrito!", "success");
+      
       setFlag(false);
       addItem(productInfo, btnClick);
     }
