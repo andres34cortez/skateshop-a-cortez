@@ -5,7 +5,7 @@ Es un proyecto sobre un e-comerce para una tienda de indumentarias e insumos de 
 ## Deploy
 
 
-ttps://skateshop-macortez.web.app/
+https://skateshop-macortez.web.app/
 
 ## Empezando
 
