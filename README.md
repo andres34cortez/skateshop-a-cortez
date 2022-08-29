@@ -1,6 +1,3 @@
-# skate shopp
-
-Es un proyecto sobre un e-comerce para una tienda de indumentarias e insumos de skateboarding.
 
 ## Deploy
 
@@ -28,10 +25,7 @@ Instalacion: npm install
 
 Empezar server: npm start
 
-## Comentarios
 
-Hola mi Nombre es Marco Andres Cortez, aunque todos me conocen como Andy.
-este repositorio corresponde a mi propiedad y esta creado para fines educativos en la realizacion de un curso de React.js de CoderHouse
 
 ## Autor
 
